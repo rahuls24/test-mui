@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  font-family: -apple-system, "Roboto", "Segoe UI", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.scroll::-webkit-scrollbar {
+  max-width: 0.324rem;
+  max-height: 0.324rem;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #bdbdbd;
+  border-radius: 5px;
+}
+
+.thin-scroll::-webkit-scrollbar {
+  max-width: 0.1rem;
+  max-height: 0.1rem;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background-color: #bdbdbd;
+  border-radius: 5px;
+}
