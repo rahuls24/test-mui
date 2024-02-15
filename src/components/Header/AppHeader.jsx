@@ -22,9 +22,10 @@ function AppHeader() {
   };
 
   const handleCloseNavMenu = () => {
+    console.log("Btn is called");
     setAnchorElNav(null);
   };
-
+  console.log(Boolean(anchorElNav));
   return (
     <AppBar position="fixed">
       <Container maxWidth="xl">
@@ -89,7 +90,12 @@ function AppHeader() {
                     smooth={true}
                     offset={-70}
                     duration={500}
-                    style={{ textDecoration: "none", color: "inherit" }}
+                    style={{
+                      textDecoration: "none",
+                      color: "inherit",
+                      width: "100%",
+                    }}
+                    onClick={handleCloseNavMenu}
                   >
                     <Typography textAlign="center">{page}</Typography>
                   </Link>
@@ -129,22 +135,25 @@ function AppHeader() {
             }}
           >
             {pages.map((page) => (
-              <Button
+              <Link
+                to={page}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                }}
                 key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
               >
-                <Link
-                  to={page}
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                  style={{ textDecoration: "none", color: "inherit" }}
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
                 >
                   {page}
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>
