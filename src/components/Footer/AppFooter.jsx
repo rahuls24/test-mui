@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
-import TextField from '@mui/material/TextField';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+import React, { useState } from "react";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import TextField from "@mui/material/TextField";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 const FooterContactForm = ({ onClose }) => {
   const handleSubmit = (event) => {
@@ -21,17 +20,15 @@ const FooterContactForm = ({ onClose }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
+    <form onSubmit={handleSubmit} style={{ textAlign: "center" }}>
       <IconButton
         aria-label="close"
         onClick={onClose}
-        style={{ position: 'absolute', top: 5, right: 5 }}
+        style={{ position: "absolute", top: 5, right: 5 }}
       >
         <CloseIcon />
       </IconButton>
-      <Typography variant="h6" gutterBottom>
-        Contact Us
-      </Typography>
+
       <TextField
         required
         fullWidth
@@ -81,15 +78,18 @@ const Footer = () => {
       sx={{
         py: 3,
         px: 2,
-        mt: 'auto',
+        mt: "auto",
         backgroundColor: (theme) =>
-          theme.palette.mode === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexDirection: 'column',
-        textAlign: 'center',
+          theme.palette.mode === "light"
+            ? theme.palette.grey[200]
+            : theme.palette.grey[800],
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        flexDirection: "column",
+        textAlign: "center",
       }}
+      id="Contact"
     >
       <Container maxWidth="md">
         <Typography variant="h6" gutterBottom>
@@ -107,7 +107,12 @@ const Footer = () => {
       </Container>
 
       {/* Contact Us Button */}
-      <Button variant="contained" color="primary" onClick={handleContactModalOpen} sx={{ mt: 3 }}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleContactModalOpen}
+        sx={{ mt: 3 }}
+      >
         Contact Us
       </Button>
 
@@ -126,12 +131,12 @@ const Footer = () => {
 
       {/* Copyright */}
       <Typography variant="body2" color="text.secondary" mt={3}>
-        {'Copyright © '}
+        {"Copyright © "}
         <Link color="inherit" href="https://law-firm.com/">
           Your Law Firm
-        </Link>{' '}
+        </Link>{" "}
         {new Date().getFullYear()}
-        {'.'}
+        {"."}
       </Typography>
     </Box>
   );

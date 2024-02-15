@@ -9,9 +9,10 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-scroll";
 import * as React from "react";
 
-const pages = ["Offerings", "Pricing"];
+const pages = ["Intro", "Offerings", "Testimonials", "Contact"];
 
 function AppHeader() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -25,15 +26,19 @@ function AppHeader() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component={Link}
+            to="Intro"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -78,7 +83,16 @@ function AppHeader() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Link
+                    to={page}
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <Typography textAlign="center">{page}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -87,8 +101,12 @@ function AppHeader() {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component={Link}
+            to="Intro"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -116,7 +134,16 @@ function AppHeader() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                <Link
+                  to={page}
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  {page}
+                </Link>
               </Button>
             ))}
           </Box>
@@ -125,4 +152,5 @@ function AppHeader() {
     </AppBar>
   );
 }
+
 export default AppHeader;

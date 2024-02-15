@@ -32,11 +32,12 @@ code {
   border-radius: 5px;
 }
 
-
 /* Overrides slider classes */
-slick-prev:before, .slick-next:before{
+.slick-prev:before,
+.slick-next:before {
   color: gray !important;
 }
-slick-prev:before, .slick-next:before{
+.slick-prev:before,
+.slick-next:before {
   color: gray !important;
 }
