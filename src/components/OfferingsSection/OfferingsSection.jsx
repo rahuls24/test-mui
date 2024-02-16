@@ -8,56 +8,74 @@ import {
   CardActions,
   Button,
 } from "@mui/material";
+import { useSpring, animated } from "react-spring";
+import { useInView } from "react-intersection-observer";
 
+const AnimatedTypography = animated(Typography);
+const AnimatedCard = animated(Card);
 const offeringsData = [
   {
     id: 1,
-    title: "Personal Injury",
-    description: "Comprehensive legal support for personal injury cases.",
+    title: "Category 1",
+    description: "Explore our high-quality plastic products in Category 1.",
     image: "https://picsum.photos/200",
   },
   {
     id: 2,
-    title: "Family Law",
-    description: "Guidance and representation in family law matters.",
+    title: "Category 2",
+    description: "Discover innovative plastic solutions in Category 2.",
     image: "https://picsum.photos/200",
   },
   {
     id: 3,
-    title: "Business Law",
-    description: "Legal assistance for businesses and corporate matters.",
+    title: "Category 3",
+    description:
+      "Customized plastic products tailored for your needs in Category 3.",
     image: "https://picsum.photos/200",
   },
   {
     id: 4,
-    title: "Real Estate Law",
-    description: "Expertise in real estate transactions and disputes.",
+    title: "Category 4",
+    description:
+      "Explore the latest trends in plastic manufacturing in Category 4.",
     image: "https://picsum.photos/200",
   },
   {
     id: 5,
-    title: "Criminal Defense",
-    description: "Defense representation for criminal charges and allegations.",
+    title: "Category 5",
+    description:
+      "Innovative plastic solutions for a sustainable future in Category 5. Innovative plastic solutions for a sustainable future in Category 5.",
     image: "https://picsum.photos/200",
   },
   {
     id: 6,
-    title: "Intellectual Property",
-    description: "Protecting and managing intellectual property rights.",
-    image: "https://picsum.photos/200",
-  },
-  {
-    id: 7,
-    title: "Employment Law",
-    description: "Legal advice and representation for employment issues.",
+    title: "Category 6",
+    description:
+      "Discover versatile and durable plastic products in Category 6.",
     image: "https://picsum.photos/200",
   },
 ];
 
 const OfferingsSection = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
+  const springPropsHeading = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? "translateY(0px)" : "translateY(50px)",
+    config: { mass: 1, tension: 180, friction: 12 },
+  });
+
+  const springPropsCard = useSpring({
+    opacity: inView ? 1 : 0,
+    transform: inView ? "translateY(0px)" : "translateY(50px)",
+    config: { mass: 1, tension: 180, friction: 12 },
+  });
+
   const handleLearnMoreClick = (offering) => {
-    // Navigate to a different page or perform any other action
     console.log(`Learn More clicked for ${offering.title}`);
+    // Navigate to a different page or perform any other action
   };
 
   return (
@@ -66,18 +84,25 @@ const OfferingsSection = () => {
       sx={{ textAlign: "center", mt: 6 }}
       id={"Offerings"}
     >
-      <Typography variant="h4" component="h2" gutterBottom>
-        Practice Areas
-      </Typography>
-      <Grid container spacing={3} justifyContent="center">
+      <AnimatedTypography
+        variant="h4"
+        component="h2"
+        gutterBottom
+        style={springPropsHeading}
+      >
+        Offerings
+      </AnimatedTypography>
+      <Grid container spacing={3} justifyContent="center" ref={ref}>
         {offeringsData.map((offering) => (
           <Grid item xs={12} sm={6} md={4} key={offering.id}>
-            <Card
-              style={{
+            <AnimatedCard
+              sx={{
                 display: "flex",
                 flexDirection: "column",
+                justifyContent: "space-between",
                 height: "100%",
               }}
+              style={springPropsCard} // Use style prop for animation
             >
               <CardActionArea onClick={() => handleLearnMoreClick(offering)}>
                 <img
@@ -94,7 +119,7 @@ const OfferingsSection = () => {
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              <CardActions sx={{ marginTop: "auto" }}>
+              <CardActions>
                 <Button
                   size="small"
                   onClick={() => handleLearnMoreClick(offering)}
@@ -102,7 +127,7 @@ const OfferingsSection = () => {
                   Learn More
                 </Button>
               </CardActions>
-            </Card>
+            </AnimatedCard>
           </Grid>
         ))}
       </Grid>

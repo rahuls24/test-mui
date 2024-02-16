@@ -10,6 +10,9 @@ import DialogContent from "@mui/material/DialogContent";
 import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import { useSpring, animated } from "react-spring";
+
+const AnimatedBox = animated(Box);
 
 const FooterContactForm = ({ onClose }) => {
   const handleSubmit = (event) => {
@@ -72,8 +75,14 @@ const Footer = () => {
     setIsContactModalOpen(false);
   };
 
+  const springPropsFooter = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { mass: 1, tension: 180, friction: 12 },
+  });
+
   return (
-    <Box
+    <AnimatedBox
       component="footer"
       sx={{
         py: 3,
@@ -90,19 +99,20 @@ const Footer = () => {
         textAlign: "center",
       }}
       id="Contact"
+      style={springPropsFooter}
     >
       <Container maxWidth="md">
         <Typography variant="h6" gutterBottom>
           Contact Information
         </Typography>
         <Typography variant="body1" gutterBottom>
-          Firm's Address
+          Company's Address
         </Typography>
         <Typography variant="body1" gutterBottom>
           Phone: +1 (123) 456-7890
         </Typography>
         <Typography variant="body1" gutterBottom>
-          Email: info@law-firm.com
+          Email: info@plastic-company.com
         </Typography>
       </Container>
 
@@ -132,13 +142,13 @@ const Footer = () => {
       {/* Copyright */}
       <Typography variant="body2" color="text.secondary" mt={3}>
         {"Copyright © "}
-        <Link color="inherit" href="https://law-firm.com/">
-          Your Law Firm
+        <Link color="inherit" href="https://plastic-company.com/">
+          Your Plastic Company
         </Link>{" "}
         {new Date().getFullYear()}
         {"."}
       </Typography>
-    </Box>
+    </AnimatedBox>
   );
 };
 

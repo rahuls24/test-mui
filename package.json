@@ -19,9 +19,11 @@
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.8.0",
     "react-router-dom": "^6.22.0",
     "react-scroll": "^1.9.0",
     "react-slick": "^0.30.1",
+    "react-spring": "^9.7.3",
     "slick-carousel": "^1.8.1",
     "sort-by": "^1.2.0"
   },
