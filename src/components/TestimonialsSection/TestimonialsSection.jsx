@@ -54,7 +54,7 @@ const TestimonialsSection = () => {
   return (
     <AnimatedBox
       ref={ref}
-      sx={{ backgroundColor: "#f4f4f4", py: 8, mt: 6 }}
+      sx={{ backgroundColor: "#f4f4f4", py: 8, mt: 6, px: { xs: 2, md: 0 } }}
       style={springPropsSlider}
     >
       <Container maxWidth="md">

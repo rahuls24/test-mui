@@ -50,7 +50,7 @@ function AppHeader() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            Joy Plastic & Packaging
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -124,7 +124,7 @@ function AppHeader() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            Joy Plastic & Packaging
           </Typography>
           <Box
             sx={{
